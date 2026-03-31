@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- ================= BASIC SEO ================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Services | Web Development & Digital Marketing in Pakistan</title>
+
+  <meta name="description"
+        content="Explore professional services by HAM Software Solutions including website development, software solutions, digital marketing, and WhatsApp automation in Pakistan.">
+
+  <meta name="keywords"
+        content="web development services Pakistan, software development company Pakistan, digital marketing services Pakistan, WhatsApp automation Pakistan">
+
+  <meta name="author" content="HAM Software Solutions">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.hamsoftwaresolutions.com/services.html">
+
+  <!-- ================= OPEN GRAPH ================= -->
+  <meta property="og:title" content="Our Services | HAM Software Solutions">
+  <meta property="og:description" content="Professional digital services helping businesses grow online in Pakistan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hamsoftwaresolutions.com/services.html">
+  <meta property="og:image" content="https://www.hamsoftwaresolutions.com/assets/image/logo.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="assets/image/logo.png" type="image/png">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
+  <div class="container d-flex justify-content-between w-100">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="assets/image/logo.png" alt="HAM Software Solutions" height="100" class="me-2">
+      <span class="fw-bold text-primary fs-6">HAM Software Solutions</span>
+    </a>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <a href="https://wa.me/923172428287" target="_blank" class="btn btn-success d-flex align-items-center">
+            <img src="assets/image/052e32d6166d12fa8b46791f1d38e559-removebg-preview.png" alt="WhatsApp" height="40" class="me-2"> WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <style>
+/* ===== HERO SECTION - ULTIMATE VERSION ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  isolation: isolate;
+}
+
+/* ===== ADVANCED BACKGROUND WITH PARALLAX ===== */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(45deg, rgba(255,107,107,0.1) 0%, transparent 50%),
+    url('assets/image/services.png') no-repeat center center/cover;
+  transform: scale(1.15) translateZ(0);
+  filter: brightness(0.45) contrast(1.1) saturate(1.2);
+  z-index: 1;
+  will-change: transform;
+  animation: parallaxFloat 20s ease-in-out infinite;
+}
+
+/* ===== MULTI-LAYER DYNAMIC OVERLAY ===== */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255,107,107,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(120,119,198,0.15) 0%, transparent 50%),
+    linear-gradient(135deg,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.45) 40%,
+      rgba(0,0,0,0.65) 70%,
+      rgba(0,0,0,0.85) 100%
+    );
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  z-index: 2;
+  animation: overlayPulse 8s ease-in-out infinite;
+}
+
+/* ===== FLOATING PARTICLES EFFECT ===== */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1.5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 15s linear infinite;
+}
+
+.particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 2s; }
+.particle:nth-child(3) { width: 3px; height: 3px; left: 80%; animation-delay: 4s; }
+.particle:nth-child(4) { width: 5px; height: 5px; left: 90%; animation-delay: 6s; }
+.particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 8s; }
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* ===== ENHANCED CONTENT ===== */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  padding: 2rem;
+  animation: fadeUpAdvanced 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ===== GLITCH TITLE EFFECT ===== */
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 0%, #f8f9ff 50%, #ff6b6b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.hero-title::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  animation: glitch 3s infinite;
+  z-index: -1;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* ===== ADVANCED SUBTITLE ===== */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  margin: 1.5rem 0 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.hero-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+  border-radius: 2px;
+}
+
+/* ===== ULTIMATE BUTTONS ===== */
+.hero-buttons {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+}
+
+.hero-buttons .btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.hero-buttons .btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
+  background: linear-gradient(135deg, #ff5252, #ff6b6b);
+}
+
+.btn-outline-light {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== ADVANCED ANIMATIONS ===== */
+@keyframes fadeUpAdvanced {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes parallaxFloat {
+  0%, 100% { transform: scale(1.15) translateY(0px); }
+  50% { transform: scale(1.15) translateY(-10px); }
+}
+
+@keyframes overlayPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, #ff6b6b, transparent);
+  animation: scrollBounce 2s infinite;
+  z-index: 3;
+}
+
+@keyframes scrollBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ===== RESPONSIVE PERFECTION ===== */
+@media (max-width: 1200px) {
+  .hero-content { max-width: 700px; }
+}
+
+@media (max-width: 992px) {
+  .hero-title { font-size: 2.8rem; }
+  .hero-content { margin: 0 1rem; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.3rem; }
+  .hero-buttons { gap: 1rem; }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    min-height: 90vh;
+    padding: 80px 1rem;
+  }
+  
+  .hero-title { 
+    font-size: 2rem; 
+    line-height: 1.3;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    padding: 1.2rem;
+  }
+  
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-content {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== HIGH-END GPU ACCELERATION ===== */
+.hero-bg,
+.hero-content,
+.hero-buttons .btn {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+</style>
+
+</head>
+
+
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero d-flex align-items-center text-center text-white">
+
+  <!-- Background -->
+  <div class="hero-bg"></div>
+
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="container hero-content">
+    <h1 class="fw-bold mb-3">Our Services</h1>
+    <p class="mb-4">
+Providing smart digital solutions to help your business grow.    </p>
+ 
+  </div>
+
+</section>
+
+
+ 
+
+  <!-- ===== SERVICES CARDS ===== -->
+  <section class="services py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">What We Offer</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card text-center p-4 h-100 shadow-sm bg-white rounded">
+            <div class="icon mb-3">
+              <img src="assets/image/pngtree-web-development-illustration-modern-can-be-used-for-landing-pages-web-png-image_1496223-removebg-preview.png" alt="Web Dev" height="150">
+            </div>
+            <h5 class="fw-bold mb-2">Website & Software Development</h5>
+            <p>Modern, fast, responsive websites & custom software solutions for your business.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card text-center p-4 h-100 shadow-sm bg-white rounded">
+            <div class="icon mb-3">
+              <img src="assets/image/social-media-instagram-facebook-marketing-704081694687672lhrblenquc-removebg-preview.png" alt="Social Media" height="150">
+            </div>
+            <h5 class="fw-bold mb-2">Social Media Marketing</h5>
+            <p>Promote your brand across Facebook, Instagram, and Google to reach more customers.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card text-center p-4 h-100 shadow-sm bg-white rounded">
+            <div class="icon mb-3">
+              <img src="assets/image/images-removebg-preview.png" alt="WhatsApp" height="150">
+            </div>
+            <h5 class="fw-bold mb-2">WhatsApp Automation</h5>
+            <p>Automate your customer support, sales, and notifications using WhatsApp bots.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card text-center p-4 h-100 shadow-sm bg-white rounded">
+            <div class="icon mb-3">
+              <img src="assets/image/pngtree-isometric-digital-marketing-growth-and-engagement-illustration-png-image_16258912-removebg-preview.png" alt="Digital Growth" height="150">
+            </div>
+            <h5 class="fw-bold mb-2">Digital Growth Solutions</h5>
+            <p>Comprehensive strategies to boost online presence, engagement, and sales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DETAILED SERVICES ===== -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Detailed Services</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card p-4 shadow-sm h-100">
+            <h5 class="fw-bold mb-3">Custom Web Development</h5>
+            <p>We build responsive, modern, and scalable websites tailored to your business needs. From eCommerce to corporate websites, we handle everything.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 shadow-sm h-100">
+            <h5 class="fw-bold mb-3">Software Solutions</h5>
+            <p>Custom software development for workflow automation, CRM, ERP, and business management systems that help your team work smarter.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 shadow-sm h-100">
+            <h5 class="fw-bold mb-3">Social Media Campaigns</h5>
+            <p>We create effective campaigns across social media platforms to increase engagement, followers, and conversions.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 shadow-sm h-100">
+            <h5 class="fw-bold mb-3">Digital Marketing Strategy</h5>
+            <p>Our team analyzes your market and competitors to craft digital strategies that generate measurable growth and ROI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta py-5 bg-primary text-white text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Want to Discuss Your Project?</h2>
+      <p class="mb-4 fs-5">Contact us today and get a free consultation!</p>
+      <a href="contact.html" class="btn btn-light btn-lg">Contact Now</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer bg-dark text-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <h5 class="fw-bold">HAM Software Solutions</h5>
+          <p>We provide smart digital solutions including Website Development, Social Media Marketing, WhatsApp Automation, and complete digital growth strategies.</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5 class="fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+            <li><a href="services.html" class="text-light text-decoration-none">Services</a></li>
+            <li><a href="portfolio.html" class="text-light text-decoration-none">Portfolio</a></li>
+            <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5 class="fw-bold">Our Services</h5>
+          <ul class="list-unstyled">
+            <li>Website & Software Development</li>
+            <li>Social Media Marketing</li>
+            <li>WhatsApp Automation</li>
+            <li>Digital Growth Solutions</li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5 class="fw-bold">Contact Us</h5>
+          <p>📞 0317-2428287</p>
+          <p>📧 hamsoftwaresolution@</p>
+          <p>📍 Pakistan</p>
+        </div>
+      </div>
+      <div class="text-center mt-3 border-top pt-3">
+        © <span id="year"></span> HAM Software Solutions. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
