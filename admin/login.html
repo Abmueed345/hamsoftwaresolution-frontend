@@ -98,7 +98,7 @@
   </script>
 
   <!-- Admin Login JS -->
-  <script>
+  <!-- <script>
     const form = document.getElementById("adminLoginForm");
     const errorMsg = document.getElementById("errorMsg");
 
@@ -135,7 +135,72 @@
         errorMsg.innerText = "Server error. Please try again later.";
       }
     });
-  </script>
+  </script> -->
+
+  <script>
+    const form = document.getElementById("adminLoginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Show loading
+      errorMsg.style.display = "none";
+      form.querySelector("button").innerText = "Logging in...";
+
+      try {
+        // 🔥 LIVE BACKEND URL (localhost hata diya)
+        const res = await fetch("https://hamsoftwaresolution-backend.onrender.com/api/admin/login", {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          errorMsg.style.display = "block";
+          errorMsg.innerText = data.message || "Login failed!";
+          form.querySelector("button").innerText = "Try Again";
+          return;
+        }
+
+        // ✅ SUCCESS
+        localStorage.setItem("adminToken", data.token);
+        localStorage.setItem("adminEmail", email);
+        
+        // Success message
+        alert("✅ Login Successful! Redirecting...");
+        
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
+
+      } catch (err) {
+        console.error("Login Error:", err);
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "❌ Server offline. Check backend status.";
+        form.querySelector("button").innerText = "Try Again";
+      }
+    });
+
+    // Backend Health Check on Load
+    window.addEventListener('load', async () => {
+      try {
+        const health = await fetch("https://hamsoftwaresolution-backend.onrender.com/api/health");
+        const status = await health.json();
+        console.log("✅ Backend Status:", status);
+      } catch (err) {
+        console.error("❌ Backend Offline");
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "⚠️ Backend server offline. Contact admin.";
+      }
+    });
+</script>
 
 </body>
 </html>

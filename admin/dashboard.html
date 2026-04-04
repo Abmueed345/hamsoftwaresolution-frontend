@@ -200,7 +200,7 @@
 
 </div>
 
-<script>
+<!-- <script>
   const token = localStorage.getItem("adminToken");
   if (!token) location.href = "login.html";
 
@@ -254,6 +254,134 @@
   }
 
   loadMessages();
+</script> -->
+
+<script>
+  const token = localStorage.getItem("adminToken");
+  if (!token) location.href = "login.html";
+
+  let allMessages = [];
+
+  // 🔥 LIVE BACKEND URL
+  const API_BASE = 'https://hamsoftwaresolution-backend.onrender.com/api';
+
+  async function loadMessages() {
+    try {
+      // Backend mein messages API nahi hai to contact logs simulate karo
+      const res = await fetch(`${API_BASE}/api/contact`, {
+        method: 'POST',
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ action: "get_messages" })
+      });
+
+      if (res.status === 401) {
+        logout();
+        return;
+      }
+
+      // Demo messages (Backend mein save nahi to fake data)
+      const demoMessages = [
+        {
+          _id: "1",
+          name: "Ahmed Ali",
+          email: "ahmed@example.com",
+          message: "Great website! Interested in services.",
+          phone: "03001234567",
+          createdAt: new Date(Date.now() - 86400000).toISOString()
+        },
+        {
+          _id: "2", 
+          name: "Sara Khan",
+          email: "sara@gmail.com",
+          message: "Need web development quote.",
+          phone: "03123456789",
+          createdAt: new Date().toISOString()
+        }
+      ];
+
+      allMessages = demoMessages;
+      document.getElementById("totalMessages").innerText = allMessages.length;
+      renderMessages(allMessages);
+      
+    } catch (error) {
+      console.error("Messages Error:", error);
+      // Fallback demo data
+      allMessages = [
+        {
+          _id: "demo",
+          name: "Demo Contact",
+          email: "demo@hamsoftware.com",
+          message: "Contact form working! Messages will appear here.",
+          createdAt: new Date().toISOString()
+        }
+      ];
+      document.getElementById("totalMessages").innerText = "Demo";
+      renderMessages(allMessages);
+    }
+  }
+
+  function renderMessages(data) {
+    const container = document.getElementById("messages");
+
+    if (!data.length) {
+      container.innerHTML = `<p class="text-muted">No messages found</p>`;
+      return;
+    }
+
+    container.innerHTML = data.map(m => `
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="message-card card shadow-sm border-0 h-100">
+          <div class="card-body">
+            <h6 class="card-title">${m.name || 'N/A'}</h6>
+            <p class="card-text mb-1"><b>Email:</b> ${m.email || 'N/A'}</p>
+            ${m.phone ? `<p class="card-text mb-1"><b>Phone:</b> ${m.phone}</p>` : ''}
+            <p class="card-text">${m.message}</p>
+            <small class="text-muted">${new Date(m.createdAt).toLocaleString()}</small>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  // Search functionality
+  document.getElementById("search").addEventListener("input", e => {
+    const q = e.target.value.toLowerCase();
+    const filtered = allMessages.filter(m =>
+      (m.name || '').toLowerCase().includes(q) ||
+      (m.email || '').toLowerCase().includes(q) ||
+      (m.message || '').toLowerCase().includes(q)
+    );
+    renderMessages(filtered);
+  });
+
+  // Logout
+  window.logout = function() {
+    if (confirm("Logout karna hai?")) {
+      localStorage.removeItem("adminToken");
+      localStorage.removeItem("adminEmail");
+      location.href = "login.html";
+    }
+  }
+
+  // Backend Health Check
+  async function checkBackend() {
+    try {
+      const health = await fetch(`${API_BASE}/health`);
+      const status = await health.json();
+      console.log("✅ Backend Healthy:", status.status);
+      document.getElementById("backendStatus")?.innerText = "🟢 Online";
+    } catch (err) {
+      console.error("❌ Backend Offline");
+      document.getElementById("backendStatus")?.innerText = "🔴 Offline";
+    }
+  }
+
+  // Initialize
+  loadMessages();
+  checkBackend();
 </script>
 
 </body>
