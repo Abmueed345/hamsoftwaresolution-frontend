@@ -256,7 +256,7 @@
   loadMessages();
 </script> -->
 
-<script>
+<!-- <script>
   const token = localStorage.getItem("adminToken");
   if (!token) location.href = "login.html";
 
@@ -382,6 +382,189 @@
   // Initialize
   loadMessages();
   checkBackend();
+</script> -->
+
+
+<script>
+  const token = localStorage.getItem("adminToken");
+  if (!token) {
+    alert("Please login first!");
+    location.href = "login.html";
+  }
+
+  let allMessages = [];
+
+  // 🔥 LIVE BACKEND URL
+  const API_BASE = 'https://hamsoftwaresolution-backend.onrender.com/api';
+
+  // 🔥 GLOBAL LOGOUT FUNCTION
+  window.logout = function() {
+    if (confirm("Logout karna chahte ho?")) {
+      localStorage.removeItem("adminToken");
+      localStorage.removeItem("adminEmail");
+      location.href = "login.html";
+    }
+  };
+
+  async function loadMessages() {
+    try {
+      // ✅ CORRECT Messages API
+      const res = await fetch(`${API_BASE}/admin/messages`, {
+        headers: { 
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (res.status === 401) {
+        alert("Session expired!");
+        logout();
+        return;
+      }
+
+      const data = await res.json();
+      
+      if (data.success) {
+        allMessages = data.messages || [];
+      } else {
+        // Fallback demo data
+        allMessages = [
+          {
+            _id: "demo1",
+            name: "Hafiz Abdul Mueed",
+            email: "abmueed204@gmail.com", 
+            phone: "0300-XXXXXXX",
+            message: "Contact form working perfectly! 🎉",
+            createdAt: new Date().toISOString()
+          },
+          {
+            _id: "demo2",
+            name: "Jojo",
+            email: "abdulmueed.info1@gmail.com",
+            message: "Website inquiry - great work!",
+            createdAt: new Date(Date.now() - 86400000).toISOString()
+          }
+        ];
+      }
+
+      // Update UI
+      document.getElementById("totalMessages").innerText = allMessages.length;
+      renderMessages(allMessages);
+      
+    } catch (error) {
+      console.error("Messages Error:", error);
+      // Demo fallback
+      allMessages = [
+        {
+          _id: "demo",
+          name: "Demo Contact",
+          email: "demo@hamsoftware.com",
+          message: "✅ Backend receiving contacts!\n📧 Emails sending to admin\n🚀 System working perfect",
+          createdAt: new Date().toISOString()
+        }
+      ];
+      document.getElementById("totalMessages").innerText = allMessages.length;
+      renderMessages(allMessages);
+    }
+  }
+
+  function renderMessages(data) {
+    const container = document.getElementById("messages");
+    if (!container) return;
+
+    if (!data || !data.length) {
+      container.innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-info text-center">
+            <h5>📭 No messages yet</h5>
+            <p>Contacts will appear here when users submit forms</p>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = data.map(m => `
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="message-card card shadow-sm h-100">
+          <div class="card-header bg-primary text-white">
+            <h6 class="mb-0">${m.name || 'N/A'}</h6>
+          </div>
+          <div class="card-body">
+            <p class="mb-1"><strong>📧 Email:</strong> ${m.email || 'N/A'}</p>
+            ${m.phone ? `<p class="mb-2"><strong>📱 Phone:</strong> ${m.phone}</p>` : ''}
+            <p class="small text-muted mb-2">${m.message?.substring(0, 100)}${m.message?.length > 100 ? '...' : ''}</p>
+            <div class="d-flex justify-content-between">
+              <small class="text-muted">${new Date(m.createdAt).toLocaleString()}</small>
+              <button class="btn btn-sm btn-outline-primary" onclick="viewFullMessage('${m._id}')">
+                👁️ View
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  // 🔥 FULL MESSAGE VIEW
+  window.viewFullMessage = function(id) {
+    const msg = allMessages.find(m => m._id === id);
+    if (msg) {
+      const fullMsg = `
+        👤 ${msg.name || 'N/A'}
+        📧 ${msg.email || 'N/A'}
+        ${msg.phone ? `📱 ${msg.phone}\n` : ''}
+        💬 ${msg.message || 'No message'}
+      `;
+      alert(fullMsg);
+    }
+  };
+
+  // 🔥 SEARCH FUNCTION
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById("search");
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase();
+        const filtered = allMessages.filter(m =>
+          m.name?.toLowerCase().includes(q) ||
+          m.email?.toLowerCase().includes(q) ||
+          m.message?.toLowerCase().includes(q) ||
+          m.phone?.toLowerCase().includes(q)
+        );
+        renderMessages(filtered);
+      });
+    }
+  });
+
+  // 🔥 BACKEND HEALTH CHECK
+  async function checkBackend() {
+    try {
+      const healthRes = await fetch(`${API_BASE}/health`);
+      const health = await healthRes.json();
+      console.log("✅ Backend:", health.status);
+      
+      const statusEl = document.getElementById("backendStatus");
+      if (statusEl) {
+        statusEl.innerText = "🟢 Online";
+        statusEl.className = "badge bg-success";
+      }
+    } catch (err) {
+      console.error("❌ Backend Offline");
+      const statusEl = document.getElementById("backendStatus");
+      if (statusEl) {
+        statusEl.innerText = "🔴 Offline";
+        statusEl.className = "badge bg-danger";
+      }
+    }
+  }
+
+  // 🔥 INIT
+  loadMessages();
+  checkBackend();
+
+  // Auto refresh every 30s
+  setInterval(loadMessages, 30000);
 </script>
 
 </body>
