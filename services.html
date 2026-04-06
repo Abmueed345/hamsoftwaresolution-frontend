@@ -29,6 +29,8 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -40,36 +42,382 @@
 </head>
 <body>
 
- <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
-  <div class="container d-flex justify-content-between w-100">
+  <nav class="pro-navbar">
+  <div class="pro-container">
     <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="assets/image/logo.png" alt="HAM Software Solutions" height="100" class="me-2">
-      <span class="fw-bold text-primary fs-6">HAM Software Solutions</span>
+    <a class="pro-logo" href="index.html">
+      <img src="assets/image/logo.png" alt="HAM Software Solutions" class="pro-logo-img">
+      <span class="pro-logo-text">HAM Software Solutions</span>
     </a>
 
-    <!-- Toggle button for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
+    <!-- Mobile Toggle -->
+    <button class="pro-toggle" type="button" aria-label="Toggle navigation">
+      <span class="pro-toggle-line"></span>
+      <span class="pro-toggle-line"></span>
+      <span class="pro-toggle-line"></span>
     </button>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item ms-lg-3">
-          <a href="https://wa.me/923172428287" target="_blank" class="btn btn-success d-flex align-items-center">
-            <img src="assets/image/052e32d6166d12fa8b46791f1d38e559-removebg-preview.png" alt="WhatsApp" height="40" class="me-2"> WhatsApp
+    <!-- Navigation Menu -->
+    <div class="pro-nav-menu">
+      <ul class="pro-nav-list">
+        <li class="pro-nav-item">
+          <a class="pro-nav-link pro-active" href="index.html">Home</a>
+        </li>
+        <li class="pro-nav-item">
+          <a class="pro-nav-link" href="about.html">About</a>
+        </li>
+        <li class="pro-nav-item">
+          <a class="pro-nav-link" href="services.html">Services</a>
+        </li>
+        <li class="pro-nav-item">
+          <a class="pro-nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="pro-nav-item">
+          <a class="pro-nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="pro-nav-cta">
+          <a href="https://wa.me/923172428287" target="_blank" class="pro-whatsapp-btn">
+            <svg class="pro-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+            <span>WhatsApp</span>
           </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+
+<style>
+
+
+/* ========================================
+   Professional Navbar Styles
+======================================== */
+.pro-navbar {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pro-navbar.scrolled {
+  padding: 0.75rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.pro-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.pro-logo:hover {
+  transform: translateY(-2px);
+}
+
+.pro-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.pro-logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+}
+
+/* Mobile Toggle Button */
+.pro-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  gap: 4px;
+  z-index: 1001;
+}
+
+.pro-toggle-line {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.pro-toggle.active .pro-toggle-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.pro-toggle.active .pro-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.pro-toggle.active .pro-toggle-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Navigation Menu */
+.pro-nav-menu {
+  display: flex;
+}
+
+.pro-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pro-nav-item {
+  margin: 0 0.125rem;
+}
+
+.pro-nav-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #495057;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.025em;
+}
+
+.pro-nav-link:hover,
+.pro-nav-link.pro-active {
+  color: #0d6efd;
+  background: rgba(13, 110, 253, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+}
+
+.pro-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.pro-nav-link:hover::after,
+.pro-nav-link.pro-active::after {
+  width: 70%;
+}
+
+/* WhatsApp CTA Button */
+.pro-nav-cta {
+  margin-left: 1.5rem;
+}
+
+.pro-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pro-whatsapp-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+
+.pro-whatsapp-btn:hover::before {
+  left: 100%;
+}
+
+.pro-whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+  background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
+}
+
+.pro-whatsapp-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .pro-toggle {
+    display: flex;
+  }
+  
+  .pro-nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pro-nav-menu.active {
+    right: 0;
+  }
+  
+  .pro-nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .pro-nav-item {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .pro-nav-link {
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .pro-nav-cta {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .pro-whatsapp-btn {
+    justify-content: center;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .pro-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .pro-logo-img {
+    height: 40px;
+  }
+  
+  .pro-logo-text {
+    font-size: 1.25rem;
+  }
+  
+  .pro-container {
+    height: 60px;
+    padding: 0 1rem;
+  }
+}
+
+  
+</style>
+
+
+<script>
+
+// Navbar Scroll Effect & Mobile Menu
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.pro-navbar');
+  const toggle = document.querySelector('.pro-toggle');
+  const navMenu = document.querySelector('.pro-nav-menu');
+  
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Mobile menu toggle
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    
+    // Body scroll lock
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  
+  // Close menu on link click (mobile)
+  document.querySelectorAll('.pro-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+  
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) {
+      toggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+</script>
+
 
 
   <style>
@@ -511,7 +859,7 @@ Providing smart digital solutions to help your business grow.    </p>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="site-footer bg-dark text-light py-5">
+  <!-- <footer class="site-footer bg-dark text-light py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-3 mb-4">
@@ -548,7 +896,264 @@ Providing smart digital solutions to help your business grow.    </p>
         © <span id="year"></span> HAM Software Solutions. All Rights Reserved.
       </div>
     </div>
-  </footer>
+  </footer> -->
+
+
+  <!-- ===== FOOTER ===== -->
+<footer class="site-footer bg-dark text-light py-5" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;">
+  <div class="container">
+    <!-- Main Footer Content -->
+    <div class="row g-4">
+      <!-- Company Info -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="d-flex align-items-center mb-3">
+          <h4 class="fw-bold text-warning mb-0 me-3">HAM Software Solutions</h4>
+          <i class="fas fa-rocket fa-2x text-warning"></i>
+        </div>
+        <p class="opacity-90">We provide cutting-edge digital solutions including Website Development, Social Media Marketing, WhatsApp Automation, and complete digital growth strategies.</p>
+        
+        <!-- Social Media Icons -->
+        <div class="social-links mt-3">
+          <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm me-2 mb-2" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm mb-2" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold border-start border-warning border-3 ps-3 mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html" class="text-light text-decoration-none hover-link"><i class="fas fa-chevron-right me-2 text-warning"></i>Home</a></li>
+          <li class="mb-2"><a href="about.html" class="text-light text-decoration-none hover-link"><i class="fas fa-chevron-right me-2 text-warning"></i>About</a></li>
+          <li class="mb-2"><a href="services.html" class="text-light text-decoration-none hover-link"><i class="fas fa-chevron-right me-2 text-warning"></i>Services</a></li>
+          <li class="mb-2"><a href="portfolio.html" class="text-light text-decoration-none hover-link"><i class="fas fa-chevron-right me-2 text-warning"></i>Portfolio</a></li>
+          <li class="mb-2"><a href="blog.html" class="text-light text-decoration-none hover-link"><i class="fas fa-chevron-right me-2 text-warning"></i>Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="fw-bold border-start border-warning border-3 ps-3 mb-3">Our Services</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-code me-2 text-warning"></i>Website & Software Development</li>
+          <li class="mb-2"><i class="fas fa-chart-line me-2 text-warning"></i>Social Media Marketing</li>
+          <li class="mb-2"><i class="fab fa-whatsapp me-2 text-warning"></i>WhatsApp Automation</li>
+          <li class="mb-2"><i class="fas fa-rocket me-2 text-warning"></i>Digital Growth Solutions</li>
+          <li class="mb-2"><i class="fas fa-mobile-alt me-2 text-warning"></i>Mobile App Development</li>
+          <li class="mb-2"><i class="fas fa-search me-2 text-warning"></i>SEO & Digital Marketing</li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="fw-bold border-start border-warning border-3 ps-3 mb-3">Contact Info</h5>
+        <div class="contact-item mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-phone-alt text-warning me-3 fs-5"></i>
+            <div>
+              <strong>Phone:</strong><br>
+              <a href="tel:+923172428287" class="text-light">0317-2428287</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-envelope text-warning me-3 fs-5"></i>
+            <div>
+              <strong>Email:</strong><br>
+              <a href="mailto:hamsoftwaresolution@gmail.com" class="text-light">hamsoftwaresolution@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-map-marker-alt text-warning me-3 fs-5"></i>
+            <div>
+              <strong>Location:</strong><br>
+              <span class="text-light">Pakistan</span>
+            </div>
+          </div>
+        </div>
+        <!-- Quick WhatsApp Button -->
+        <a href="https://wa.me/923172428287" class="btn btn-success btn-lg w-100 mt-2">
+          <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="row mt-5 pt-4 border-top border-secondary border-opacity-25">
+      <div class="col-md-8 mx-auto text-center">
+        <h4 class="fw-bold mb-3">Stay Updated</h4>
+        <p class="mb-3 opacity-90">Subscribe to get latest updates and offers</p>
+        <div class="input-group">
+          <input type="email" class="form-control bg-transparent border-end-0 text-light" placeholder="Enter your email">
+          <button class="btn btn-warning px-4"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright & Bottom Links -->
+    <div class="row mt-5 pt-4 border-top border-secondary border-opacity-25">
+      <div class="col-md-6">
+        <p class="mb-0 opacity-75">
+          © <span id="year"></span> HAM Software Solutions. All Rights Reserved. 
+          <span class="d-none d-md-inline">| Designed with ❤️ for Digital Excellence</span>
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="#" class="text-light me-3 opacity-75 text-decoration-none hover-link">Privacy Policy</a>
+        <a href="#" class="text-light me-3 opacity-75 text-decoration-none hover-link">Terms of Service</a>
+        <a href="#" class="text-light opacity-75 text-decoration-none hover-link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="btn btn-warning btn-floating back-to-top rounded-circle shadow-lg" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<style>
+/* Footer Custom Styles */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+.hover-link {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hover-link:hover {
+  color: #ffc107 !important;
+  transform: translateX(10px);
+}
+
+.hover-link:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #ffc107;
+}
+
+.social-links a {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255,193,7,0.4);
+  border-color: #ffc107 !important;
+  background: #ffc107 !important;
+  color: #000 !important;
+}
+
+.contact-item {
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255,193,7,0.4) !important;
+}
+
+.input-group .form-control:focus {
+  border-color: #ffc107 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255,193,7,0.25) !important;
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+
+.input-group .form-control::placeholder {
+  color: rgba(255,255,255,0.6) !important;
+}
+</style>
+
+<script>
+// Dynamic Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Back to Top Functionality
+window.addEventListener('scroll', function() {
+  const backToTop = document.getElementById('backToTop');
+  if (window.pageYOffset > 300) {
+    backToTop.style.display = 'block';
+  } else {
+    backToTop.style.display = 'none';
+  }
+});
+
+document.getElementById('backToTop').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Newsletter Form (Demo)
+document.querySelector('.input-group button').addEventListener('click', function() {
+  const email = document.querySelector('.input-group input').value;
+  if (email) {
+    alert('Thank you for subscribing! 🎉');
+    document.querySelector('.input-group input').value = '';
+  }
+});
+</script>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
