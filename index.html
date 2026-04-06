@@ -68,7 +68,7 @@
 </head>
 <body>
 
- <nav class="pro-navbar">
+<nav class="pro-navbar">
   <div class="pro-container">
     <!-- Logo -->
     <a class="pro-logo" href="index.html">
@@ -117,18 +117,19 @@
 
 <style>
 
-
 /* ========================================
-   Professional Navbar Styles
+   Professional Navbar Styles - FIXED
 ======================================== */
 .pro-navbar {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  position: sticky;
+  position: fixed; /* CHANGED: sticky se fixed */
   top: 0;
-  z-index: 1000;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* INCREASED z-index */
   padding: 1rem 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -178,7 +179,7 @@
   letter-spacing: -0.025em;
 }
 
-/* Mobile Toggle Button */
+/* Mobile Toggle Button - FIXED */
 .pro-toggle {
   display: none;
   flex-direction: column;
@@ -187,7 +188,7 @@
   padding: 0.5rem;
   cursor: pointer;
   gap: 4px;
-  z-index: 1001;
+  z-index: 10000; /* HIGHEST z-index */
 }
 
 .pro-toggle-line {
@@ -211,7 +212,7 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Navigation Menu */
+/* Navigation Menu - FIXED */
 .pro-nav-menu {
   display: flex;
 }
@@ -317,17 +318,18 @@
   flex-shrink: 0;
 }
 
-/* Responsive Design */
+/* RESPONSIVE DESIGN - FIXED */
 @media (max-width: 991px) {
   .pro-toggle {
-    display: flex;
+    display: flex !important; /* FORCE display */
   }
   
   .pro-nav-menu {
-    position: fixed;
+    position: fixed; /* CHANGED: important for mobile */
     top: 0;
-    right: -100%;
-    width: 320px;
+    right: -100%; /* HIDDEN by default */
+    width: 80%; /* RESPONSIVE width */
+    max-width: 350px;
     height: 100vh;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
@@ -336,11 +338,12 @@
     justify-content: center;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 2rem 0;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.2);
+    z-index: 9998;
   }
   
   .pro-nav-menu.active {
-    right: 0;
+    right: 0 !important; /* FORCE show */
   }
   
   .pro-nav-list {
@@ -363,7 +366,7 @@
   
   .pro-nav-cta {
     margin-left: 0;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     width: 100%;
   }
   
@@ -375,6 +378,11 @@
   
   .pro-container {
     padding: 0 1.5rem;
+  }
+  
+  /* Body padding for fixed navbar */
+  body {
+    padding-top: 70px;
   }
 }
 
@@ -391,15 +399,23 @@
     height: 60px;
     padding: 0 1rem;
   }
+  
+  body {
+    padding-top: 60px;
+  }
+  
+  .pro-nav-menu {
+    width: 90%;
+    max-width: 300px;
+  }
 }
 
-  
 </style>
 
 
 <script>
 
-// Navbar Scroll Effect & Mobile Menu
+// Navbar Scroll Effect & Mobile Menu - FIXED
 document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.querySelector('.pro-navbar');
   const toggle = document.querySelector('.pro-toggle');
@@ -414,17 +430,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Mobile menu toggle
-  toggle.addEventListener('click', () => {
+  // Mobile menu toggle - FIXED
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     toggle.classList.toggle('active');
     navMenu.classList.toggle('active');
     
     // Body scroll lock
-    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    if (navMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   });
   
   // Close menu on link click (mobile)
-  document.querySelectorAll('.pro-nav-link').forEach(link => {
+  document.querySelectorAll('.pro-nav-link, .pro-whatsapp-btn').forEach(link => {
     link.addEventListener('click', () => {
       toggle.classList.remove('active');
       navMenu.classList.remove('active');
@@ -432,9 +453,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Close menu on outside click
+  // Close menu on outside click - FIXED
   document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target)) {
+    if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {
       toggle.classList.remove('active');
       navMenu.classList.remove('active');
       document.body.style.overflow = '';
